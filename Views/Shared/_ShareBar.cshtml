@@ -1,0 +1,34 @@
+﻿
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="~/Content/NewCSS/ShareBar.css" rel="stylesheet" />
+
+
+<div class="shareBarParent">
+    <div class="ShareBar">
+        <a class="fb btn btn-danger" href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+
+        <br />
+        <a class="tw btn btn-info" href="https://twitter.com/intent/tweet/?url=hey" target="_blank">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        var titleText = $("title").text();
+        var tweetUrl = "https://twitter.com/intent/tweet/?url=" + document.URL + "&text=" + titleText
+        $(".tw").attr('href', tweetUrl);
+
+        var fbUrl = "https://www.facebook.com/sharer/sharer.php?u="+document.URL
+
+        $(".fb").attr('href', fbUrl);
+
+    });
+
+</script>

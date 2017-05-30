@@ -1,0 +1,150 @@
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\LibSassHost.Native\LibSassHost.Native-32.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\LibSassHost.Native\LibSassHost.Native-64.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\csc.exe
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\vbc.exe
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\VBCSCompiler.exe
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\TimeLineBlog.dll.config
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\TimeLineBlog.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\TimeLineBlog.pdb
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Antlr3.Runtime.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\BundleTransformer.Core.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\BundleTransformer.SassAndScss.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\EntityFramework.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\EntityFramework.SqlServer.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\LibSassHost.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Newtonsoft.Json.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Owin.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Helpers.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Mvc.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Optimization.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Razor.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.Razor.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\WebGrease.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Helpers.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Mvc.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Optimization.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.Razor.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\System.Web.WebPages.Razor.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Antlr3.Runtime.pdb
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Newtonsoft.Json.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\EntityFramework.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\EntityFramework.SqlServer.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\obj\Release\TimeLineBlog.csprojResolveAssemblyReference.cache
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\obj\Release\TimeLineBlog.dll
+C:\Users\Alex\documents\visual studio 2015\Projects\TimeLineBlog\obj\Release\TimeLineBlog.pdb
+C:\Projects\TimeLineClone\TimelineBlog\bin\LibSassHost.Native\LibSassHost.Native-32.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\LibSassHost.Native\LibSassHost.Native-64.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\csc.exe
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\vbc.exe
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\VBCSCompiler.exe
+C:\Projects\TimeLineClone\TimelineBlog\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\TimeLineClone\TimelineBlog\bin\TimeLineBlog.dll.config
+C:\Projects\TimeLineClone\TimelineBlog\bin\TimeLineBlog.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\TimeLineBlog.pdb
+C:\Projects\TimeLineClone\TimelineBlog\bin\Antlr3.Runtime.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\BundleTransformer.Core.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\BundleTransformer.SassAndScss.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\EntityFramework.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\EntityFramework.SqlServer.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\LibSassHost.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Google.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Newtonsoft.Json.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Owin.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Helpers.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Mvc.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Optimization.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Razor.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.Razor.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\WebGrease.dll
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Helpers.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Mvc.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Optimization.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.Razor.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\System.Web.WebPages.Razor.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Antlr3.Runtime.pdb
+C:\Projects\TimeLineClone\TimelineBlog\bin\Newtonsoft.Json.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\EntityFramework.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\EntityFramework.SqlServer.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Google.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Projects\TimeLineClone\TimelineBlog\bin\ru-ru\BundleTransformer.Core.resources.dll
+C:\Projects\TimeLineClone\TimelineBlog\obj\Release\TimeLineBlog.csprojResolveAssemblyReference.cache
+C:\Projects\TimeLineClone\TimelineBlog\obj\Release\TimeLineBlog.dll
+C:\Projects\TimeLineClone\TimelineBlog\obj\Release\TimeLineBlog.pdb

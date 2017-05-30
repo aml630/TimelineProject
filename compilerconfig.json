@@ -1,0 +1,34 @@
+﻿[
+  {
+    "outputFile": "Content/Honey.css",
+    "inputFile": "Content/Honey.scss"
+  },
+  {
+    "outputFile": "Content/TimeLine.css",
+    "inputFile": "Content/TimeLine.scss"
+  },
+  {
+    "outputFile": "Views/Post/Graph1.css",
+    "inputFile": "Views/Post/Graph1.scss"
+  },
+  {
+    "outputFile": "Content/RecentPost.css",
+    "inputFile": "Content/RecentPost.scss"
+  },
+  {
+    "outputFile": "Content/NewCSS/OrangeGraph.css",
+    "inputFile": "Content/NewCSS/OrangeGraph.scss"
+  },
+  {
+    "outputFile": "Content/NewCSS/GraphDataCard.css",
+    "inputFile": "Content/NewCSS/GraphDataCard.scss"
+  },
+  {
+    "outputFile": "Content/NewCSS/TimeLine.css",
+    "inputFile": "Content/NewCSS/TimeLine.scss"
+  },
+  {
+    "outputFile": "Content/NewCSS/InteractivePieChart.css",
+    "inputFile": "Content/NewCSS/InteractivePieChart.scss"
+  }
+]
