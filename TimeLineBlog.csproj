@@ -136,6 +136,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -194,10 +197,26 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,7 +224,28 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Timeline.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeLineEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeLineEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeLineEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TimeLineEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeLineEntity.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -284,6 +324,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="TimeLineEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TimeLineEntity.edmx</DependentUpon>
+      <LastGenOutput>TimeLineEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TimeLineEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TimeLineEntity.edmx</DependentUpon>
+      <LastGenOutput>TimeLineEntity.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,12 +381,22 @@
     <Content Include="Views\Shared\FooterShare.cshtml" />
     <Content Include="Views\Shared\_ShareFooter.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <EntityDeploy Include="TimeLineEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TimeLineEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="TimeLineEntity.edmx.diagram">
+      <DependentUpon>TimeLineEntity.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

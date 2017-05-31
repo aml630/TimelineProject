@@ -2,9 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
+<form action="Resource/PullDownLinksFromFeeds">
+    <button>Pull down links from feeds</button>
+</form>
+
+<form action="Resource/AddTimeline">
+    <input name="title" />
+    <input name="image" />
+    <input name="slug" />
+    <button>Add timeline</button>
+</form>
+
+
 <h1></h1>
 <div class="flexBox">
-        <a href="~/Blog/Timeline">
+        <a href="~/Blog/TrumpRussia">
         <div class="blog-card spring-fever" style="background: url(http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/3v/hv/p03vhv9x.jpg) center no-repeat;">
             <div class="title-content">
                 <h3>Trumps Russian Love Affair</h3>
@@ -12,7 +24,7 @@
             </div>
             <div class="card-info">
                 A Timeline
-                <a href="~/Blog/Timeline">Read Article<span class="licon icon-arr icon-black"></span></a>
+                <a href="~/Blog/TrumpRussia">Read Article<span class="licon icon-arr icon-black"></span></a>
             </div>
             <div class="utility-info">
                 @*<ul class="utility-list">
