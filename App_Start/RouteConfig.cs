@@ -14,6 +14,12 @@ namespace TimeLineBlog
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+          name: "LoadTimeline",
+          url: "Timeline/{slug}",
+          defaults: new { controller = "Timeline", action = "LoadTimeline", slug = UrlParameter.Optional }
+      );
+
+            routes.MapRoute(
                 name: "TrumpRussia",
                 url: "{controller}/trump-russia",
                 defaults: new { controller = "Blog", action = "TrumpRussia" }

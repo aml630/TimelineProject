@@ -78,6 +78,22 @@
           <Property Name="ResourceType" Type="int" Nullable="false" />
           <Property Name="TimelineId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="RSSFeeds">
+          <Key>
+            <PropertyRef Name="FeedId" />
+          </Key>
+          <Property Name="FeedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeedTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="FeedLink" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="SearchWords">
+          <Key>
+            <PropertyRef Name="SearchWordId" />
+          </Key>
+          <Property Name="SearchWordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SearchWordString" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="TimelineId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Timelines">
           <Key>
             <PropertyRef Name="TimelineId" />
@@ -95,6 +111,18 @@
               <PropertyRef Name="TimelineId" />
             </Principal>
             <Dependent Role="Resources">
+              <PropertyRef Name="TimelineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SearchWor__Timel__3B75D760">
+          <End Role="Timelines" Type="Self.Timelines" Multiplicity="1" />
+          <End Role="SearchWords" Type="Self.SearchWords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timelines">
+              <PropertyRef Name="TimelineId" />
+            </Principal>
+            <Dependent Role="SearchWords">
               <PropertyRef Name="TimelineId" />
             </Dependent>
           </ReferentialConstraint>
@@ -163,10 +191,16 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resources" EntityType="Self.Resources" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RSSFeeds" EntityType="Self.RSSFeeds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SearchWords" EntityType="Self.SearchWords" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Timelines" EntityType="Self.Timelines" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Resources__Timel__33D4B598" Association="Self.FK__Resources__Timel__33D4B598">
             <End Role="Timelines" EntitySet="Timelines" />
             <End Role="Resources" EntitySet="Resources" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SearchWor__Timel__3B75D760" Association="Self.FK__SearchWor__Timel__3B75D760">
+            <End Role="Timelines" EntitySet="Timelines" />
+            <End Role="SearchWords" EntitySet="SearchWords" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -257,6 +291,7 @@
           <Property Name="TimelineImage" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="TimelineSlug" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Resources" Relationship="TimelineModel.FK__Resources__Timel__33D4B598" FromRole="Timeline" ToRole="Resource" />
+          <NavigationProperty Name="SearchWords" Relationship="TimelineModel.FK__SearchWor__Timel__3B75D760" FromRole="Timeline" ToRole="SearchWord" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -314,6 +349,12 @@
             <End Role="Timeline" EntitySet="Timelines" />
             <End Role="Resource" EntitySet="Resources" />
           </AssociationSet>
+          <EntitySet Name="RSSFeeds" EntityType="TimelineModel.RSSFeed" />
+          <EntitySet Name="SearchWords" EntityType="TimelineModel.SearchWord" />
+          <AssociationSet Name="FK__SearchWor__Timel__3B75D760" Association="TimelineModel.FK__SearchWor__Timel__3B75D760">
+            <End Role="Timeline" EntitySet="Timelines" />
+            <End Role="SearchWord" EntitySet="SearchWords" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Resource">
           <Key>
@@ -336,6 +377,35 @@
               <PropertyRef Name="TimelineId" />
             </Principal>
             <Dependent Role="Resource">
+              <PropertyRef Name="TimelineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RSSFeed">
+          <Key>
+            <PropertyRef Name="FeedId" />
+          </Key>
+          <Property Name="FeedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FeedLink" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SearchWord">
+          <Key>
+            <PropertyRef Name="SearchWordId" />
+          </Key>
+          <Property Name="SearchWordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SearchWordString" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TimelineId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Timeline" Relationship="TimelineModel.FK__SearchWor__Timel__3B75D760" FromRole="SearchWord" ToRole="Timeline" />
+        </EntityType>
+        <Association Name="FK__SearchWor__Timel__3B75D760">
+          <End Type="TimelineModel.Timeline" Role="Timeline" Multiplicity="1" />
+          <End Type="TimelineModel.SearchWord" Role="SearchWord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Timeline">
+              <PropertyRef Name="TimelineId" />
+            </Principal>
+            <Dependent Role="SearchWord">
               <PropertyRef Name="TimelineId" />
             </Dependent>
           </ReferentialConstraint>
@@ -429,6 +499,24 @@
                 <ScalarProperty Name="ResourceUrl" ColumnName="ResourceUrl" />
                 <ScalarProperty Name="ResourceTitle" ColumnName="ResourceTitle" />
                 <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RSSFeeds">
+            <EntityTypeMapping TypeName="TimelineModel.RSSFeed">
+              <MappingFragment StoreEntitySet="RSSFeeds">
+                <ScalarProperty Name="FeedLink" ColumnName="FeedLink" />
+                <ScalarProperty Name="FeedTitle" ColumnName="FeedTitle" />
+                <ScalarProperty Name="FeedId" ColumnName="FeedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SearchWords">
+            <EntityTypeMapping TypeName="TimelineModel.SearchWord">
+              <MappingFragment StoreEntitySet="SearchWords">
+                <ScalarProperty Name="TimelineId" ColumnName="TimelineId" />
+                <ScalarProperty Name="SearchWordString" ColumnName="SearchWordString" />
+                <ScalarProperty Name="SearchWordId" ColumnName="SearchWordId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

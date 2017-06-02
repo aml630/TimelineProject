@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<form action="Resource/PullDownLinksFromFeeds">
+<form action="Resource/CheckFeedsForResources">
     <button>Pull down links from feeds</button>
 </form>
 
@@ -12,6 +12,12 @@
     <input name="slug" />
     <button>Add timeline</button>
 </form>
+
+@foreach(var timeline in Model)
+{
+    <a href="/Timeline/@timeline.TimelineSlug">@timeline.TimelineTitle</a>
+    <br />
+}
 
 
 <h1></h1>

@@ -214,6 +214,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\TimelineController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>TimeLineEntity.tt</DependentUpon>
     </Compile>
@@ -225,6 +226,12 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RSSFeed.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchWord.cs">
       <DependentUpon>TimeLineEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
@@ -388,6 +395,7 @@
     <Content Include="TimeLineEntity.edmx.diagram">
       <DependentUpon>TimeLineEntity.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Timeline\LoadTimeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

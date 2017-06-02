@@ -15,7 +15,7 @@ namespace TimeLineBlog.Controllers
 
         }
 
-        public void AddSingleLink(string title, string link, int timelineId)
+        public void AddSingleLink(string title, string link, DateTime datepublished, int timelineId)
         {
             TimelineEntities db = new TimelineEntities();
 
@@ -23,7 +23,7 @@ namespace TimeLineBlog.Controllers
             newResource.ResourceTitle = title;
             newResource.ResourceUrl = link;
             newResource.DateAdded = DateTime.Now;
-            newResource.DatePublished = DateTime.Now;
+            newResource.DatePublished = datepublished;
             newResource.ResourceType = 1;
             newResource.TimelineId = timelineId;
 
@@ -49,20 +49,44 @@ namespace TimeLineBlog.Controllers
         {
 
         }
-        public void PullDownLinksFromFeeds ()
+        public void PullDownLinksFromFeeds(string rssFeed, List<SearchWord> searchwords)
         {
-            var r = XmlReader.Create("https://fivethirtyeight.com/all/feed");
+            var r = XmlReader.Create(rssFeed);
             var albums = SyndicationFeed.Load(r);
 
             foreach (var item in albums.Items)
             {
-                AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, 1);
+                var text = item.Title.Text;
+                var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
+                var words = text.Split().Select(x => x.Trim(punctuation));
+
+                foreach (var word in words)
+                {
+                    foreach (var searchWord in searchwords)
+                    {
+                        if (word.ToLower() == searchWord.SearchWordString)
+                        {
+                            AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId);
+                        }
+                    }
+                }
             }
-
-
             r.Close();
         }
 
+        public void CheckFeedsForResources()
+        {
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                var searchwords = db.SearchWords.ToList();
 
+                var feeds = db.RSSFeeds.Select(x => x.FeedLink).ToList();
+
+                foreach (var feed in feeds)
+                {
+                    PullDownLinksFromFeeds(feed, searchwords);
+                }
+            }
+        }
     }
 }

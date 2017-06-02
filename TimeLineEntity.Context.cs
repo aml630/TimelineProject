@@ -32,5 +32,7 @@ namespace TimeLineBlog
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Timeline> Timelines { get; set; }
         public virtual DbSet<Resource> Resources { get; set; }
+        public virtual DbSet<RSSFeed> RSSFeeds { get; set; }
+        public virtual DbSet<SearchWord> SearchWords { get; set; }
     }
 }

@@ -10,7 +10,13 @@ namespace TimeLineBlog.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<Timeline> context;
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                 context = db.Timelines.ToList();
+            }
+
+            return View(context);
         }
 
         public ActionResult About()
