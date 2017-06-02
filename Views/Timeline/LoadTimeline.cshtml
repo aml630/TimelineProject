@@ -3,7 +3,7 @@
 }
 
 
-<h1>Timeline for @Model.TimelineTitle</h1>
+@*<h1>Timeline for @Model.TimelineTitle</h1>*@
 
 
 @{
@@ -11,15 +11,23 @@
 }
 
 
-<title>Trumps Russian Love Affair: A Timeline</title>
+<title>@Model.TimelineTitle: A Timeline</title>
 
 
 
-<form action="Resource/AddSingleLink">
+<form action="~/Resource/AddSingleLink">
     <input name="title" />
     <input name="link" />
     <button>Add Link</button>
 </form>
+<br />
+
+<form action="~/Resource/AddSearchWord">
+    <input name="searchWord" />
+    <input hidden name="timeLineId" value=@Model.TimelineId />
+    <button>Add Search Word</button>
+</form>
+
 
 @section AddToHead{
     <meta property="og:image" content="http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/3v/hv/p03vhv9x.jpg" />
@@ -35,31 +43,15 @@
 
     @Html.Partial("_ShareBar")
 
-    <div style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(http://ichef.bbci.co.uk/wwfeatures/wm/live/1280_640/images/live/p0/3v/hv/p03vhv9x.jpg) no-repeat fixed 50% 0; " id="banner">
+    <div style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(@Model.TimelineImage) no-repeat fixed 50% 0; " id="banner">
         <div id="bannertext">
-            <h1>Trumps Russian Love Affair</h1>
+            <h1>@Model.TimelineTitle</h1>
             <h2>A Timeline</h2>
         </div>
     </div>
 
     <div id="content"></div>
     <section id="cd-timeline" class="cd-container">
-
-
-        <div class="cd-timeline-block">
-            <div class="cd-timeline-img cd-picture">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
-            </div> <!-- cd-timeline-img -->
-            <div class="cd-timeline-content Graph1Section">
-                <h2>Donald and Ivana take a trip to Moscow and checkout potential build sites</h2>
-                <p>
-                    Donald and Ivana Trump travel to Moscow and stay in the Lenin Suite.  On their trip they spend time touring potential construction sites.
-                </p>
-                <a href="https://www.nytimes.com/2017/01/16/us/politics/donald-trump-russia-business.html" class="cd-read-more">Read more</a>
-                <span class="cd-date">July 1987</span>
-            </div> <!-- cd-timeline-content -->
-        </div> <!-- cd-timeline-block -->
-
 
         @foreach (var item in ViewBag.Resources)
         {
@@ -70,7 +62,7 @@
                 <div class="cd-timeline-content Graph1Section">
                    
                     <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
-                    <a href="https://www.nytimes.com/2017/01/16/us/politics/donald-trump-russia-business.html" class="cd-read-more">Read more</a>
+                    @*<a href="https://www.nytimes.com/2017/01/16/us/politics/donald-trump-russia-business.html" class="cd-read-more">Read more</a>*@
                     <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
                 </div> <!-- cd-timeline-content -->
             </div> <!-- cd-timeline-block -->

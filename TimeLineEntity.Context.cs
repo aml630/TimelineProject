@@ -34,5 +34,6 @@ namespace TimeLineBlog
         public virtual DbSet<Resource> Resources { get; set; }
         public virtual DbSet<RSSFeed> RSSFeeds { get; set; }
         public virtual DbSet<SearchWord> SearchWords { get; set; }
+        public virtual DbSet<Fact> Facts { get; set; }
     }
 }

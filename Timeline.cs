@@ -19,6 +19,7 @@ namespace TimeLineBlog
         {
             this.Resources = new HashSet<Resource>();
             this.SearchWords = new HashSet<SearchWord>();
+            this.Facts = new HashSet<Fact>();
         }
     
         public int TimelineId { get; set; }
@@ -30,5 +31,7 @@ namespace TimeLineBlog
         public virtual ICollection<Resource> Resources { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SearchWord> SearchWords { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Fact> Facts { get; set; }
     }
 }

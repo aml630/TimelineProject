@@ -19,6 +19,8 @@
         <EntityTypeShape EntityType="TimelineModel.RSSFeed" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="TimelineModel.SearchWord" Width="1.5" PointX="3" PointY="10.5" />
         <AssociationConnector Association="TimelineModel.FK__SearchWor__Timel__3B75D760" />
+        <EntityTypeShape EntityType="TimelineModel.Fact" Width="1.5" PointX="3" PointY="14" />
+        <AssociationConnector Association="TimelineModel.FK__Facts__TimelineI__4D94879B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

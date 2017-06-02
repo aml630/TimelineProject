@@ -12,16 +12,17 @@ namespace TimeLineBlog
     using System;
     using System.Collections.Generic;
     
-    public partial class Resource
+    public partial class Fact
     {
-        public int ResourceId { get; set; }
-        public string ResourceTitle { get; set; }
-        public string ResourceUrl { get; set; }
-        public System.DateTime DatePublished { get; set; }
+        public int FactId { get; set; }
+        public string FactTitle { get; set; }
+        public string FactText { get; set; }
+        public System.DateTime DateTookPlace { get; set; }
         public System.DateTime DateAdded { get; set; }
-        public int ResourceType { get; set; }
-        public int TimelineId { get; set; }
+        public string SourceArticleUrl { get; set; }
+        public string SourceArticleTitle { get; set; }
         public int ApprovalStatus { get; set; }
+        public int TimelineId { get; set; }
     
         public virtual Timeline Timeline { get; set; }
     }

@@ -64,9 +64,12 @@ namespace TimeLineBlog.Controllers
                 {
                     foreach (var searchWord in searchwords)
                     {
-                        if (word.ToLower() == searchWord.SearchWordString)
+                        if (word.ToLower() == searchWord.SearchWordString.ToLower())
                         {
-                            AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId);
+                            if (OnlyAddUniqueArticle(item.Title.Text))
+                            {
+                                AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId);
+                            }
                         }
                     }
                 }
@@ -85,6 +88,38 @@ namespace TimeLineBlog.Controllers
                 foreach (var feed in feeds)
                 {
                     PullDownLinksFromFeeds(feed, searchwords);
+                }
+            }
+        }
+
+        public void AddSearchWord(string searchWord, int timeLineId)
+        {
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                SearchWord newWord = new SearchWord
+                {
+                    SearchWordString = searchWord,
+                    TimelineId = timeLineId
+                };
+
+                db.SearchWords.Add(newWord);
+                db.SaveChanges();
+            }
+        }
+
+        public bool OnlyAddUniqueArticle(string articleTitle)
+        {
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                var repeats = db.Resources.Where(x => x.ResourceTitle == articleTitle).FirstOrDefault();
+
+                if (repeats == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

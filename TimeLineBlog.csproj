@@ -218,6 +218,9 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>TimeLineEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fact.cs">
+      <DependentUpon>TimeLineEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
