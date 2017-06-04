@@ -14,8 +14,19 @@ namespace TimeLineBlog
     
     public partial class RSSFeed
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RSSFeed()
+        {
+            this.Resources = new HashSet<Resource>();
+        }
+    
         public int FeedId { get; set; }
         public string FeedTitle { get; set; }
         public string FeedLink { get; set; }
+        public string SourceImage { get; set; }
+        public Nullable<int> SpectrumRank { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Resource> Resources { get; set; }
     }
 }

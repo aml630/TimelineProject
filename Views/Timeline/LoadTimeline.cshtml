@@ -10,10 +10,7 @@
     ViewBag.Title = "Post1";
 }
 
-
 <title>@Model.TimelineTitle: A Timeline</title>
-
-
 
 <form action="~/Resource/AddSingleLink">
     <input name="title" />
@@ -38,6 +35,8 @@
 
 <body>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     @Styles.Render("~/Post1/css")
     @Scripts.Render("~/Post1/js")
 
@@ -50,21 +49,56 @@
         </div>
     </div>
 
+    <button>Add fact to timeline</button>
+    <div class="container">
+        <div class="form-group" data-toggle="validator">
+            <form action="~/Resource/AddTimelineFact">
+                <label>What Happened?</label>
+                <input class="form-control input-lg" name="factText" data-error="Bruh, that email address is invalid" required />
+                <label>When Did It Happen?</label>
+                <input class="form-control input-lg" type="date" name="factDate" />
+                <label>What's Your Source?</label>
+                <input class="form-control input-lg" name="factSource" />
+                <input hidden name="timeLineId" value=@Model.TimelineId />
+                <button class="btn btn-info">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <div id="content"></div>
     <section id="cd-timeline" class="cd-container">
 
         @foreach (var item in ViewBag.Resources)
-        {
+            {
             <div class="cd-timeline-block">
-                <div class="cd-timeline-img cd-picture">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-picture.svg" alt="Picture">
+                <div class="cd-timeline-img cd-picture" style="background-image: url(@item.RSSFeed.SourceImage);">
                 </div> <!-- cd-timeline-img -->
-                <div class="cd-timeline-content Graph1Section">
-                   
-                    <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
-                    @*<a href="https://www.nytimes.com/2017/01/16/us/politics/donald-trump-russia-business.html" class="cd-read-more">Read more</a>*@
-                    <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
-                </div> <!-- cd-timeline-content -->
+                @if (item.RSSFeed.SpectrumRank == 0)
+                {
+                    <div class="cd-timeline-content Graph1Section">
+                        <p>@item.ResourceTitle</p>
+                        <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
+                        <a href="@item.ResourceUrl" class="cd-read-more">Read Source</a>
+                    </div> <!-- cd-timeline-content -->
+
+                }
+                else if (item.RSSFeed.SpectrumRank < 5)
+                {
+
+
+                    <div class="cd-timeline-content Graph1Section" style="border: 3px solid hsl(205, 100%, 60%);">
+                        <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
+                        <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
+                    </div> <!-- cd-timeline-content -->
+                }
+                else
+                {
+                    <div class="cd-timeline-content Graph1Section" style="border: 3px solid hsl(0, 100%, 60%);">
+                        <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
+                        <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
+                    </div> <!-- cd-timeline-content -->
+                }
+
             </div> <!-- cd-timeline-block -->
         }
 

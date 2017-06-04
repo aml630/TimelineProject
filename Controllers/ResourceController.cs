@@ -15,7 +15,7 @@ namespace TimeLineBlog.Controllers
 
         }
 
-        public void AddSingleLink(string title, string link, DateTime datepublished, int timelineId)
+        public void AddSingleLink(string title, string link, DateTime datepublished, int timelineId, int feedid, int resourceType = 1)
         {
             TimelineEntities db = new TimelineEntities();
 
@@ -24,8 +24,9 @@ namespace TimeLineBlog.Controllers
             newResource.ResourceUrl = link;
             newResource.DateAdded = DateTime.Now;
             newResource.DatePublished = datepublished;
-            newResource.ResourceType = 1;
+            newResource.ResourceType = resourceType;
             newResource.TimelineId = timelineId;
+            newResource.FeedId = feedid;
 
             db.Resources.Add(newResource);
             db.SaveChanges();
@@ -49,9 +50,9 @@ namespace TimeLineBlog.Controllers
         {
 
         }
-        public void PullDownLinksFromFeeds(string rssFeed, List<SearchWord> searchwords)
+        public void PullDownLinksFromFeeds(RSSFeed rssFeed, List<SearchWord> searchwords)
         {
-            var r = XmlReader.Create(rssFeed);
+            var r = XmlReader.Create(rssFeed.FeedLink);
             var albums = SyndicationFeed.Load(r);
 
             foreach (var item in albums.Items)
@@ -68,7 +69,7 @@ namespace TimeLineBlog.Controllers
                         {
                             if (OnlyAddUniqueArticle(item.Title.Text))
                             {
-                                AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId);
+                                AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId, rssFeed.FeedId);
                             }
                         }
                     }
@@ -83,7 +84,7 @@ namespace TimeLineBlog.Controllers
             {
                 var searchwords = db.SearchWords.ToList();
 
-                var feeds = db.RSSFeeds.Select(x => x.FeedLink).ToList();
+                var feeds = db.RSSFeeds.ToList();
 
                 foreach (var feed in feeds)
                 {
@@ -123,5 +124,12 @@ namespace TimeLineBlog.Controllers
                 }
             }
         }
+
+        public void AddTimelineFact(string factText, DateTime factDate, int timelineId, string factSource)
+        {
+            AddSingleLink("fact", factSource, factDate, timelineId, 6, 2);
+
+        }
+
     }
 }

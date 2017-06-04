@@ -22,7 +22,10 @@ namespace TimeLineBlog
         public int ResourceType { get; set; }
         public int TimelineId { get; set; }
         public int ApprovalStatus { get; set; }
+        public Nullable<int> FeedId { get; set; }
+        public string FactText { get; set; }
     
+        public virtual RSSFeed RSSFeed { get; set; }
         public virtual Timeline Timeline { get; set; }
     }
 }
