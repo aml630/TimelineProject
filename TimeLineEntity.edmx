@@ -94,6 +94,7 @@
           <Property Name="ApprovalStatus" Type="int" Nullable="false" />
           <Property Name="FeedId" Type="int" />
           <Property Name="FactText" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="RSSFeeds">
           <Key>
@@ -407,8 +408,8 @@
             <End Role="Timeline" EntitySet="Timelines" />
             <End Role="Fact" EntitySet="Facts" />
           </AssociationSet>
-          <EntitySet Name="Resources" EntityType="TimelineModel.Resource" />
           <EntitySet Name="RSSFeeds" EntityType="TimelineModel.RSSFeed" />
+          <EntitySet Name="Resources" EntityType="TimelineModel.Resource" />
           <AssociationSet Name="FK__Resources__FeedI__5AEE82B9" Association="TimelineModel.FK__Resources__FeedI__5AEE82B9">
             <End Role="RSSFeed" EntitySet="RSSFeeds" />
             <End Role="Resource" EntitySet="Resources" />
@@ -417,7 +418,7 @@
             <End Role="Timeline" EntitySet="Timelines" />
             <End Role="Resource" EntitySet="Resources" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="SearchWord">
           <Key>
             <PropertyRef Name="SearchWordId" />
@@ -466,6 +467,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RSSFeed">
+          <Key>
+            <PropertyRef Name="FeedId" />
+          </Key>
+          <Property Name="FeedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeedTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FeedLink" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SourceImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SpectrumRank" Type="Int32" />
+          <NavigationProperty Name="Resources" Relationship="TimelineModel.FK__Resources__FeedI__5AEE82B9" FromRole="RSSFeed" ToRole="Resource" />
+        </EntityType>
         <EntityType Name="Resource">
           <Key>
             <PropertyRef Name="ResourceId" />
@@ -479,20 +491,10 @@
           <Property Name="TimelineId" Type="Int32" Nullable="false" />
           <Property Name="ApprovalStatus" Type="Int32" Nullable="false" />
           <Property Name="FeedId" Type="Int32" />
+          <Property Name="FactText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="RSSFeed" Relationship="TimelineModel.FK__Resources__FeedI__5AEE82B9" FromRole="Resource" ToRole="RSSFeed" />
           <NavigationProperty Name="Timeline" Relationship="TimelineModel.FK__Resources__Timel__33D4B598" FromRole="Resource" ToRole="Timeline" />
-          <Property Name="FactText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="RSSFeed">
-          <Key>
-            <PropertyRef Name="FeedId" />
-          </Key>
-          <Property Name="FeedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FeedTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FeedLink" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="SourceImage" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SpectrumRank" Type="Int32" />
-          <NavigationProperty Name="Resources" Relationship="TimelineModel.FK__Resources__FeedI__5AEE82B9" FromRole="RSSFeed" ToRole="Resource" />
         </EntityType>
         <Association Name="FK__Resources__FeedI__5AEE82B9">
           <End Type="TimelineModel.RSSFeed" Role="RSSFeed" Multiplicity="0..1" />
@@ -518,7 +520,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -621,9 +623,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RSSFeeds">
+            <EntityTypeMapping TypeName="TimelineModel.RSSFeed">
+              <MappingFragment StoreEntitySet="RSSFeeds">
+                <ScalarProperty Name="SpectrumRank" ColumnName="SpectrumRank" />
+                <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
+                <ScalarProperty Name="FeedLink" ColumnName="FeedLink" />
+                <ScalarProperty Name="FeedTitle" ColumnName="FeedTitle" />
+                <ScalarProperty Name="FeedId" ColumnName="FeedId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Resources">
             <EntityTypeMapping TypeName="TimelineModel.Resource">
               <MappingFragment StoreEntitySet="Resources">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="FactText" ColumnName="FactText" />
                 <ScalarProperty Name="FeedId" ColumnName="FeedId" />
                 <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
@@ -634,17 +648,6 @@
                 <ScalarProperty Name="ResourceUrl" ColumnName="ResourceUrl" />
                 <ScalarProperty Name="ResourceTitle" ColumnName="ResourceTitle" />
                 <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RSSFeeds">
-            <EntityTypeMapping TypeName="TimelineModel.RSSFeed">
-              <MappingFragment StoreEntitySet="RSSFeeds">
-                <ScalarProperty Name="SpectrumRank" ColumnName="SpectrumRank" />
-                <ScalarProperty Name="SourceImage" ColumnName="SourceImage" />
-                <ScalarProperty Name="FeedLink" ColumnName="FeedLink" />
-                <ScalarProperty Name="FeedTitle" ColumnName="FeedTitle" />
-                <ScalarProperty Name="FeedId" ColumnName="FeedId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

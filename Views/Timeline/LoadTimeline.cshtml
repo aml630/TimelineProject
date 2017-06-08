@@ -12,6 +12,15 @@
 
 <title>@Model.TimelineTitle: A Timeline</title>
 
+@foreach(var word in ViewBag.SearchWords)
+{
+    <h2>@word.SearchWordString</h2>
+    <form action="~/Resource/DeleteSearchWord">
+        <input hidden name="searchWordId" value="@word.SearchWordId" />
+        <button class="btn btn-warning">Delete Word</button>
+    </form>
+}
+
 <form action="~/Resource/AddSingleLink">
     <input name="title" />
     <input name="link" />
@@ -49,19 +58,52 @@
         </div>
     </div>
 
-    <button>Add fact to timeline</button>
-    <div class="container">
-        <div class="form-group" data-toggle="validator">
-            <form action="~/Resource/AddTimelineFact">
-                <label>What Happened?</label>
-                <input class="form-control input-lg" name="factText" data-error="Bruh, that email address is invalid" required />
-                <label>When Did It Happen?</label>
-                <input class="form-control input-lg" type="date" name="factDate" />
-                <label>What's Your Source?</label>
-                <input class="form-control input-lg" name="factSource" />
-                <input hidden name="timeLineId" value=@Model.TimelineId />
-                <button class="btn btn-info">Submit</button>
-            </form>
+    <button class="btn btn-info hideTheLeft">Hide The Left</button>
+    <button class="btn btn-danger hideTheRight">Hide The Right</button>
+
+    <div class="addToTimelineContainer">
+
+        <button class="btn btn-primary revButtons">Add To Timeline</button>
+
+        <div class="addToTimelineButtons">
+
+            <button class="btn btn-classic addLinkButton">Add Link</button>
+
+            <button class="btn btn-classic addFactButton">Add Fact</button>
+        </div>
+
+        <div class="addFactForm">
+            <div class="container">
+                <div class="form-group row" data-toggle="validator">
+                    <form action="~/Resource/AddTimelineFact">
+                        <label>What Happened?</label>
+                        <input class="form-control input-lg" name="factText" required />
+                        <label>When Did It Happen?</label>
+                        <input class="form-control input-lg" type="date" name="factDate" required />
+                        <label>What's Your Source?</label>
+                        <input class="form-control input-lg" name="factSource" required />
+                        <input hidden name="timeLineId" value=@Model.TimelineId />
+                        <button class="btn btn-info">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="addLinkForm">
+            <div class="container">
+                <div class="form-group" data-toggle="validator">
+                    <form action="~/Resource/AddSingleLink">
+                        <label>What's The Link Title?</label>
+                        <input class="form-control input-lg" name="title" required />
+                        <label>When Was It Published</label>
+                        <input class="form-control input-lg" type="date" name="datepublished" required />
+                        <label>What's The URL?</label>
+                        <input class="form-control input-lg" name="link" required />
+                        <input hidden name="timeLineId" value=@Model.TimelineId />
+                        <button class="btn btn-info">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -70,35 +112,36 @@
 
         @foreach (var item in ViewBag.Resources)
             {
-            <div class="cd-timeline-block">
+            <div class="cd-timeline-block" data-spectrum="@item.RSSFeed.SpectrumRank">
                 <div class="cd-timeline-img cd-picture" style="background-image: url(@item.RSSFeed.SourceImage);">
                 </div> <!-- cd-timeline-img -->
-                @if (item.RSSFeed.SpectrumRank == 0)
+                @if (item.FeedId == 1)
                 {
                     <div class="cd-timeline-content Graph1Section">
                         <p>@item.ResourceTitle</p>
                         <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
                         <a href="@item.ResourceUrl" class="cd-read-more">Read Source</a>
                     </div> <!-- cd-timeline-content -->
-
                 }
                 else if (item.RSSFeed.SpectrumRank < 5)
                 {
-
-
-                    <div class="cd-timeline-content Graph1Section" style="border: 3px solid hsl(205, 100%, 60%);">
+                    <div class="cd-timeline-content Graph1Section" style="border: 2px solid hsl(205, 100%, 60%);">
                         <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
                         <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
                     </div> <!-- cd-timeline-content -->
                 }
                 else
                 {
-                    <div class="cd-timeline-content Graph1Section" style="border: 3px solid hsl(0, 100%, 60%);">
+                    <div class="cd-timeline-content Graph1Section" style="border: 2px solid hsl(0, 100%, 60%);">
                         <a href="@item.ResourceUrl"><h2>@item.ResourceTitle</h2></a>
                         <span class="cd-date">@item.DatePublished.ToString("dd MMM yyyy")</span>
                     </div> <!-- cd-timeline-content -->
                 }
 
+        <form action="~/Resource/DeactivateResource">
+            <input hidden name ="resourceId" value="@item.ResourceId" />
+            <button>Deactivate</button>
+        </form>
             </div> <!-- cd-timeline-block -->
         }
 
@@ -107,3 +150,38 @@
     @Html.Partial("_ShareFooter");
 </body>
 
+
+
+<script>
+        $(".revButtons").click(function () {
+            $(".addToTimelineButtons").toggle();
+            $(".addLinkForm").hide();
+            $(".addFactForm").hide();
+        })
+        $(".addFactButton").click(function () {
+            $(".addFactForm").toggle();
+            $(".addLinkForm").hide();
+        })
+
+        $(".addLinkButton").click(function () {
+            $(".addLinkForm").toggle();
+            $(".addFactForm").hide();
+        })
+
+        $(".hideTheRight").click(function () {
+            $("div[data-spectrum='6']").toggle();
+            $("div[data-spectrum='7']").toggle();
+            $("div[data-spectrum='8']").toggle();
+            $("div[data-spectrum='9']").toggle();
+        })
+
+        $(".hideTheLeft").click(function () {
+            console.log("go");
+            $("div[data-spectrum='1']").toggle();
+            $("div[data-spectrum='2']").toggle();
+            $("div[data-spectrum='3']").toggle();
+            $("div[data-spectrum='4']").toggle();
+            $("div[data-spectrum='5']").toggle();
+        })
+
+</script>

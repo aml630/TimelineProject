@@ -18,11 +18,11 @@
         <AssociationConnector Association="TimelineModel.FK__SearchWor__Timel__3B75D760" />
         <EntityTypeShape EntityType="TimelineModel.Fact" Width="1.5" PointX="3" PointY="14" />
         <AssociationConnector Association="TimelineModel.FK__Facts__TimelineI__4D94879B" />
-        <EntityTypeShape EntityType="TimelineModel.Resource" Width="1.5" PointX="6" PointY="9.875" />
         <EntityTypeShape EntityType="TimelineModel.RSSFeed" Width="1.5" PointX="3.75" PointY="18.375" />
+        <EntityTypeShape EntityType="TimelineModel.Resource" Width="1.5" PointX="6" PointY="12.125" />
         <AssociationConnector Association="TimelineModel.FK__Resources__FeedI__5AEE82B9" />
         <AssociationConnector Association="TimelineModel.FK__Resources__Timel__33D4B598" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

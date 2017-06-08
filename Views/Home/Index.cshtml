@@ -15,10 +15,10 @@
     <input name="slug" />
     <button>Add timeline</button>
 </form>
+<div class="flexBox">
+    @foreach (var timeline in Model)
+    {
 
-@foreach (var timeline in Model)
-{
-    <div class="flexBox">
         <a href="~/Timeline/@timeline.TimelineSlug">
             <div class="blog-card spring-fever" style="background: url(@timeline.TimelineImage) center no-repeat;">
                 <div class="title-content">
@@ -27,14 +27,19 @@
                 </div>
                 <div class="card-info">
                     A Timeline
-                    <a href="~/Blog/TrumpRussia">Read Article<span class="licon icon-arr icon-black"></span></a>
+                    @*<a href="~/Blog/TrumpRussia">Read Article<span class="licon icon-arr icon-black"></span></a>*@
                 </div>
-                <div class="utility-info">
-                </div>
+                @*<div class="utility-info">
+                </div>*@
                 <div class="gradient-overlay"></div>
-                <div class="color-overlay"></div>
-            </div><!-- /.blog-card -->
+                <a href="~/Timeline/@timeline.TimelineSlug"> <div class="color-overlay"></div></a>
+</div><!-- /.blog-card -->
         </a>
-    </div>
-    <br />
-}
+
+        <br />
+    }
+</div>
+
+<style>
+
+</style>

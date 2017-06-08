@@ -33,7 +33,7 @@ namespace TimeLineBlog
         public virtual DbSet<Timeline> Timelines { get; set; }
         public virtual DbSet<SearchWord> SearchWords { get; set; }
         public virtual DbSet<Fact> Facts { get; set; }
-        public virtual DbSet<Resource> Resources { get; set; }
         public virtual DbSet<RSSFeed> RSSFeeds { get; set; }
+        public virtual DbSet<Resource> Resources { get; set; }
     }
 }

@@ -97,6 +97,22 @@ textarea {
     position: relative;
 }
 
+      .addToTimelineButtons {
+            display: none;
+        }
+
+        .addFactForm {
+            display: none;
+        }
+
+        .addLinkForm {
+            display: none;
+        }
+
+        .addToTimelineContainer {
+            margin-left: 80%;
+        }
+
 
 @media screen and (max-width: 450px) {
     .TransparentBarGraphIframeProportions {

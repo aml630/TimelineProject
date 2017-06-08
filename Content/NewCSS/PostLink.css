@@ -1,8 +1,8 @@
 ﻿
 .blog-card {
-  max-width: 550px;
+  max-width: 350px;
   width:100%;
-  height: 500px;
+  height: 300px;
   position: relative;
   font-family: 'Droid Serif', serif;
   color:#fff;
@@ -16,6 +16,7 @@
   text-align: center;
   transition:all 0.4s;
   background-size: 100%;
+  margin-bottom: 30px;
 }
 .blog-card a{ 
 color:#fff;

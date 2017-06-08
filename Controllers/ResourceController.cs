@@ -15,7 +15,10 @@ namespace TimeLineBlog.Controllers
 
         }
 
-        public void AddSingleLink(string title, string link, DateTime datepublished, int timelineId, int feedid, int resourceType = 1)
+
+
+        public void AddSingleLink(string title, string link, DateTime datepublished, int timelineId, int feedid = 2
+            , int resourceType = 1)
         {
             TimelineEntities db = new TimelineEntities();
 
@@ -52,30 +55,35 @@ namespace TimeLineBlog.Controllers
         }
         public void PullDownLinksFromFeeds(RSSFeed rssFeed, List<SearchWord> searchwords)
         {
-            var r = XmlReader.Create(rssFeed.FeedLink);
-            var albums = SyndicationFeed.Load(r);
-
-            foreach (var item in albums.Items)
+            if(rssFeed.FeedLink != null)
             {
-                var text = item.Title.Text;
-                var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
-                var words = text.Split().Select(x => x.Trim(punctuation));
 
-                foreach (var word in words)
+                var r = XmlReader.Create(rssFeed.FeedLink);
+                var albums = SyndicationFeed.Load(r);
+
+                foreach (var item in albums.Items)
                 {
-                    foreach (var searchWord in searchwords)
+                    var text = item.Title.Text;
+                    var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
+                    var words = text.Split().Select(x => x.Trim(punctuation));
+
+                    foreach (var word in words)
                     {
-                        if (word.ToLower() == searchWord.SearchWordString.ToLower())
+                        foreach (var searchWord in searchwords)
                         {
-                            if (OnlyAddUniqueArticle(item.Title.Text))
+                            if (word.ToLower() == searchWord.SearchWordString.ToLower())
                             {
-                                AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId, rssFeed.FeedId);
+                                if (OnlyAddUniqueArticle(item.Title.Text))
+                                {
+                                    AddSingleLink(item.Title.Text, item.Links[0].Uri.AbsoluteUri, item.PublishDate.UtcDateTime, searchWord.TimelineId, rssFeed.FeedId);
+                                }
                             }
                         }
                     }
                 }
+                r.Close();
             }
-            r.Close();
+
         }
 
         public void CheckFeedsForResources()
@@ -108,6 +116,17 @@ namespace TimeLineBlog.Controllers
             }
         }
 
+        public void DeleteSearchWord(int searchWordId)
+        {
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                var foundWord = db.SearchWords.Where(x => x.SearchWordId == searchWordId).FirstOrDefault();
+
+                db.SearchWords.Remove(foundWord);
+                db.SaveChanges();
+            }
+        }
+
         public bool OnlyAddUniqueArticle(string articleTitle)
         {
             using (TimelineEntities db = new TimelineEntities())
@@ -125,9 +144,22 @@ namespace TimeLineBlog.Controllers
             }
         }
 
+        public void DeactivateResource(int resourceId)
+        {
+            using (TimelineEntities db = new TimelineEntities())
+            {
+                var resource = db.Resources.Where(x => x.ResourceId == resourceId).FirstOrDefault();
+
+                resource.Active = false;
+
+                db.SaveChanges();
+
+            }
+        }
+
         public void AddTimelineFact(string factText, DateTime factDate, int timelineId, string factSource)
         {
-            AddSingleLink("fact", factSource, factDate, timelineId, 6, 2);
+            AddSingleLink(factText, factSource, factDate, timelineId, 1, 2);
 
         }
 

@@ -16,9 +16,11 @@ namespace TimeLineBlog.Controllers
 
             findTimeLine = db.Timelines.Include("Resources").Where(x => x.TimelineSlug == slug).FirstOrDefault();
 
-           var orderedResources = db.Resources.Where(x => x.TimelineId == findTimeLine.TimelineId).OrderByDescending(y => y.DatePublished).ToList();
+           var orderedResources = db.Resources.Where(x => x.TimelineId == findTimeLine.TimelineId && x.Active == true).OrderByDescending(y => y.DatePublished).ToList();
 
             ViewBag.Resources = orderedResources;
+
+            ViewBag.SearchWords = db.SearchWords.Where(x => x.TimelineId == findTimeLine.TimelineId).ToList();
 
             return View(findTimeLine);
 
